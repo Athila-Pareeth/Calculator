@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+     body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+     }
+     .calculator {
+        background-color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); */
+     }
+    .calc-screen input {
+        width: 100%;
+        background-color: black;
+        color: white;
+        font-size: 2rem;
+        text-align: right;
+        border: none;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .calc-button-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    button {
+        background-color: #555;
+        color: white;
+        font-size: 1.5rem;
+        padding: 20px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+    }
+    button:active {
+        background-color: #888;
+    }
+    button:nth-child(4n) {
+        background-color: #ff9500;
+    }
+    button:nth-child(4n):active {
+        background-color: #ffa500;
+    }
+</style>
+<body>
+    <center>
+    <h1>Calculator</h1>
+    <div class="calculator">
+        <div class="calc-screen">
+            <!-- <div class="calc-typed"> -->
+            <input id="result" type="text" placeholder="0" >
+        
+    </div>
+    <!--calculator button-->
+<div class="calc-button-row">
+    <button id="ac" onclick="cleartext()">AC</button>
+    <button onclick="appendValue('%')">%</button>
+    <button id="del" onclick="lastChar()"><i class="fa-solid fa-delete-left"></i></button>
+    <button onclick="appendValue('/')">÷</button>
+
+    <button id="seven" onclick="displayNumber(7)">7</button>
+    <button id="eight" onclick="displayNumber(8)">8</button>
+    <button id="nine" onclick="displayNumber(9)">9</button>
+    <button id="mul" onclick="displayNumber('*')">x</button>
+    <button id="four" onclick="displayNumber(4)">4</button>
+    <button id="five" onclick="displayNumber(5)">5</button>
+    <button id="six" onclick="displayNumber(6)">6</button>
+    <button id="sub" onclick="displayNumber('-')">-</button>
+    <button id="one" onclick="displayNumber(1)">1</button>
+    <button id="two" onclick="displayNumber(2)">2</button>
+    <button id="three" onclick="displayNumber(3)">3</button>
+    <button id="ad" onclick="displayNumber('+')">+</button>
+    <button id="zero" onclick="displayNumber('00')">00</button>
+
+    <button id="zero" onclick="displayNumber(0)">0</button>
+    <button id="add1" onclick="displayNumber('+')">+</button>
+    <button id="equal" onclick="operation('=')">=</button>
+</div>
+</div>
+</center>
+
+<script>
+ function displayNumber(num)
+ {
+    result.value+=num
+ }
+ function cleartext()
+ {
+    result.value=" "
+ }
+ function operation()
+ {
+    result.value=eval(result.value)
+ }
+ function lastChar()
+ {
+    result.value=result.value.slice(0,-1)
+ }
+</script>
+</body>
+</html>
